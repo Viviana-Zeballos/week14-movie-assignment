@@ -6,7 +6,7 @@ function ReviewList({reviews, movieData, setMovieData}) {
   console.log(reviews);
   return (
     <div>
-      <h4>Reviews</h4>
+      <h3>Reviews</h3>
       {
         reviews.map(review=>(<Review key={review.text} review={review}/>))
       }
