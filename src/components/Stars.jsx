@@ -1,30 +1,30 @@
-import { useState } from 'react'
+import React from 'react';
+import '../App.css';
 
-function Stars() {
-  const [count, setCount] = useState (0)
-
-  function showStars(){
+function Stars({ rating, onRatingChange }) {
+  function showStars() {
     const stars = [];
-    for (let i = 1; i <= 5; i++ ) {
-      if (count >= i) {
-        stars.push(<img src="./star.png" alt="" className='yellow' onClick={()=>setCount(i)}/>)
-      } else {
-        stars.push(<img src="./star.png" alt="" onClick={()=>setCount(i)}/>)
-      }
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <img
+          key={i}
+          src="./star.png"
+          alt={`Star ${i}`}
+          className={rating >= i ? 'yellow' : ''}
+          onClick={() => onRatingChange(i)}
+          style={{
+            width: '24px',
+            height: '24px',
+            cursor: 'pointer',
+            filter: rating >= i ? 'brightness(1.5)' : 'none', // Inline style for testing
+          }}
+        />
+      );
     }
     return stars;
   }
-  const ratingChanged = (newRating) => {
-    setCount(newRating)
-    console.log(newRating);
-  };
-  return (
-    <div>
-      <span className='star'>
-        {showStars()}
-      </span>
-    </div>
-  )
+
+  return <div>{showStars()}</div>;
 }
 
-export default Stars
+export default Stars;

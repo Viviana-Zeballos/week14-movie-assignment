@@ -1,7 +1,6 @@
 import React from "react";
 import movies from "../data";
 import Movie from "./Movie";
-import ReviewList from "./ReviewList";
 
 function MovieList({movieData, setMovieData}) {
   return (

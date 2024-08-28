@@ -1,12 +1,10 @@
 import React from 'react'
 import ReviewForm from './ReviewForm'
 
-function Review({review}) {
+function Review({reviews, setMovieData}) {
   return (
     <div>
-      <p>{review.text}</p>
-      <h5>{review.user}</h5>
-      <ReviewForm />
+      <ReviewForm setMovieData={setMovieData} />
     </div>
   )
 }
