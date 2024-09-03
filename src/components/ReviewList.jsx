@@ -1,16 +1,22 @@
-import React from 'react'
-import Review from './Review'
+import React from 'react';
 
-function ReviewList({ movieData, setMovieData}) {
-  console.log(movieData);
-  
+function ReviewList({ reviews }) {
   return (
     <div>
       <h3>Reviews</h3>
-      {movieData && movieData.reviews.map(review=>(<Review key={review.text} review={review}/>))
-      }
+      {reviews.length === 0 ? (
+        <p>No reviews yet.</p>
+      ) : (
+        reviews.map((review, index) => (
+          <div className='reviews-list' key={index}>
+            <h4>{review.user}</h4>
+            <p>{review.review}</p>
+            <p>Rating: {review.stars}</p> 
+          </div>
+        ))
+      )}
     </div>
-  )
+  );
 }
 
-export default ReviewList
+export default ReviewList;

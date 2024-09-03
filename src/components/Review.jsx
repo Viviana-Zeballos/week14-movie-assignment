@@ -1,12 +1,15 @@
-import React from 'react'
-import ReviewForm from './ReviewForm'
+import React from 'react';
+import ReviewForm from './ReviewForm';
 
-function Review({reviews, setMovieData}) {
+function Review({ review, setMovieData }) {
   return (
     <div>
+      <h4>{review.user}</h4>
+      <p>{review.text}</p>
       <ReviewForm setMovieData={setMovieData} />
+      <p>Form should appear below this text</p> {/* Test message */}
     </div>
-  )
+  );
 }
 
-export default Review
+export default Review;
